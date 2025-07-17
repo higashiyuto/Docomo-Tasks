@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docomo Tasks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 左: 見積もりアプリ -->
+        <div class="left-pane">
+            <iframe src="/estimate/index.html" title="Estimate App"></iframe>
+        </div>
+
+        <!-- 右: タブ切り替えでアプリ選択 -->
+        <div class="right-pane">
+            <div class="tab-buttons">
+                <button data-src="/device-edit/public/index.html">端末編集</button>
+                <button data-src="/todo-dairy/public/index.html">Dairy ToDo</button>
+                <button data-src="/schedule/public/index.html">Schedule</button>
+            </div>
+            <iframe id="rightApp" src="/device-edit/index.html" title="Other App"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
