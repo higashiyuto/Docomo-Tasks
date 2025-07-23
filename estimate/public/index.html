@@ -11,9 +11,8 @@
     <div class="estimate">
         <div class="action-container">
             <button id="reset-button" class="icon-button"><img src="./images/reset-icon.png" alt="更新"></button>
-            <button id="save-button" class="icon-button"><img src="./images/save-icon.png" alt="保存"></button>
-            <button id="open-button" class="icon-button"><img src="./images/open-icon.png" alt="開く"></button>
-        
+            <button id="save-button" class="icon-button"><img src="./images/save-icon.PNG" alt="保存"></button>
+            <button id="open-button" class="icon-button"><img src="./images/open-icon.PNG" alt="開く"></button>
             <div class="customer-name">お試し</div>
         </div>
 
@@ -21,14 +20,15 @@
             <div class="device-container">
                 <table id="device-content-table">
                     <tr>
-                        <th><select id="device-select" name="device">
-                            <option value="" disabled selected>端末選択してください</option>
-                        </select></th>
+                        <th>
+                            <select id="device-select" name="device">
+                                <option value="" disabled selected>端末選択してください</option>
+                            </select>
+                        </th>
                         <td id="device-price">0 円</td>
                     </tr>
                 </table>
             </div>
-
             <div class="contract-container">
                 <select id="contract-select">
                     <option value="契約種別" disabled selected>契約種別</option>
@@ -45,32 +45,26 @@
         </div>
 
         <div class="installments-container">
-            <table class="kaedoki-installments-table">
-                <tr>
-                    <td class="kaedoki-name">カエドキプログラム</td>
-                    <td class="kaedoki-price" id="kaedoki-price">0 円 = </td>
-                    <td class="kaedoki-monthly-price" id="kaedoki-monthly-price">0 円 / 月</td>
-                    <td class="checkbox" id="checkbox-table"><input type="checkbox" class="price-checkbox" id="kaedoki-price-checkbox"></td>
-                </tr>
-            </table>
-
-            <table class="normal-installments-table">
-                <tr>
-                    <td class="normal-name">通常分割</td>
-                    <td class="installments-num">
-                        <select id="installments-num">
-                            <option value="分割回数" disabled selected>分割回数</option>
-                            <option value="1">一括</option>
-                            <option value="12">12 回</option>
-                            <option value="24">24 回</option>
-                            <option value="36">36 回</option>
-                        </select>
-                    </td>
-                    <td class="normal-price" id="normal-price">0 円 = </td>
-                    <td class="normal-monthly-price" id="normal-monthly-price">0 円 / 月</td>
-                    <td class="checkbox" id="checkbox-table"><input type="checkbox" class="price-checkbox" id="kaedoki-price-checkbox"></td>
-                </tr>
-            </table>
+            <div class="installments-item">
+                <span class="name">カエドキプログラム</span>
+                <span class="placeholder"></span>
+                <span class="price" id="kaedoki-price">0 円 = </span>
+                <span class="monthly-price" id="kaedoki-monthly-price">0 円 / 月</span>
+                <input type="checkbox" class="price-checkbox" id="kaedoki-price-checkbox">
+            </div>
+            <div class="installments-item">
+                <span class="name">通常分割</span>
+                <select id="installments-num">
+                    <option value="分割回数" disabled selected>分割回数</option>
+                    <option value="1">一括</option>
+                    <option value="12">12 回</option>
+                    <option value="24">24 回</option>
+                    <option value="36">36 回</option>
+                </select>
+                <span class="price" id="normal-price">0 円 = </span>
+                <span class="monthly-price" id="normal-monthly-price">0 円 / 月</span>
+                <input type="checkbox" class="price-checkbox" id="normal-price-checkbox">
+            </div>
         </div>
 
         <div class="plan-container">
@@ -81,9 +75,7 @@
                 <button class="plan-button poikatsu-max">ドコモポイ活 MAX</button>
                 <button class="plan-button poikatsu-20">ドコモポイ活 20</button>
             </div>
-
-            <div class="plan-storage">
-            </div>
+            <div class="plan-storage"></div>
         </div>
 
         <div class="option-container">
@@ -93,62 +85,49 @@
                 <button class="option-category-button security">セキュリティ</button>
                 <button class="option-category-button pack">パック</button>
             </div>
-
-            <div class="option-edit">
-            </div>
+            <div class="option-edit"></div>
         </div>
 
         <div class="discount-container">
-            <table class="discount-table">
-                <tr>
-                <td class="label">
-                    <select id="family-discount">
+            <div class="discount-item">
+                <select id="family-discount">
                     <option value="" disabled selected>ファミリー割</option>
                     <option value="ファミリー割 ~2人">ファミリー割 ~2人</option>
                     <option value="ファミリー割 3人以上">ファミリー割 3人以上</option>
-                    </select>
-                </td>
-                <td class="price" id="family-discount-price">0 円</td>
-                <td class="checkbox"><input type="checkbox" class="price-checkbox" id="family-discount-checkbox"></td>
-                </tr>
-
-                <tr>
-                <td class="label">
-                    <select id="wifi-discount">
+                </select>
+                <span class="price" id="family-discount-price">0 円</span>
+                <input type="checkbox" class="price-checkbox" id="family-discount-checkbox">
+            </div>
+            <div class="discount-item">
+                <select id="wifi-discount">
                     <option value="ドコモ光・home5G割" selected>ドコモ光・home5G割</option>
-                    </select>
-                </td>
-                <td class="price" id="wifi-discount-price">1210 円</td>
-                <td class="checkbox"><input type="checkbox" class="price-checkbox" id="wifi-discount-checkbox"></td>
-                </tr>
-
-                <tr>
-                <td class="label">
-                    <select id="dcard-discount">
+                </select>
+                <span class="price" id="wifi-discount-price">1210 円</span>
+                <input type="checkbox" class="price-checkbox" id="wifi-discount-checkbox">
+            </div>
+            <div class="discount-item">
+                <select id="dcard-discount">
                     <option value="" disabled selected>dカード割</option>
                     <option value="silver">dカード Silver</option>
                     <option value="gold">dカード Gold</option>
                     <option value="platinum">dカード Platinum</option>
-                    </select>
-                </td>
-                <td class="price" id="dcard-discount-price">0 円</td>
-                <td class="checkbox"><input type="checkbox" class="price-checkbox" id="dcard-discount-checkbox"></td>
-                </tr>
-
-                <tr>
-                <td class="label">
-                    <select id="electricity-discount">
-                    <option value="ドコモでんき割" selected>ドコモでんき割</option>
-                    </select>
-                </td>
-                <td class="price" id="electricity-discount-price">0 円</td>
-                <td class="checkbox"><input type="checkbox" class="price-checkbox" id="electricity-discount-checkbox"></td>
-                </tr>
-            </table>
+                </select>
+                <span class="price" id="dcard-discount-price">0 円</span>
+                <input type="checkbox" class="price-checkbox" id="dcard-discount-checkbox">
             </div>
+            <div class="discount-item">
+                <select id="electricity-discount">
+                    <option value="ドコモでんき割" selected>ドコモでんき割</option>
+                </select>
+                <span class="price" id="electricity-discount-price">0 円</span>
+                <input type="checkbox" class="price-checkbox" id="electricity-discount-checkbox">
+            </div>
+        </div>
 
-
-        <div class="total-container">合計 0円</div>
+        <div class="total-container">
+            <span>合計</span>
+            <span id="total-price">0円</span>
+        </div>
     </div>
 
     <script type="module" src="script.js"></script>

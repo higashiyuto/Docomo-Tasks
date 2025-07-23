@@ -1,10 +1,11 @@
 body{
-    margin-top: 10px;
+    margin: 0;
     height: 100vh
 }
 
 .app-container{
     display: flex;
+    height: 100vh;
 }
 
 .left-pane, .right-pane{
@@ -32,7 +33,6 @@ body{
 iframe{
     flex-grow: 1;
     border: none;
-    height: 90vh;
 }
 
 @media screen and (max-width: 768px){

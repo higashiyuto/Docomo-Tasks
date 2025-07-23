@@ -21,5 +21,18 @@ export async function registerContractSelectHandler(){
             state.useDiscount = false;
             state.useDiscount = true;
         }
+
+        const discountCheckbox = document.getElementById('discount-checkbox');
+        const kaedokiCheckbox = document.getElementById('kaedoki-price-checkbox');
+        const normalCheckbox = document.getElementById('normal-price-checkbox');
+
+        // 2. UI上のチェックをすべて外す
+        if (discountCheckbox) discountCheckbox.checked = false;
+        if (kaedokiCheckbox) kaedokiCheckbox.checked = false;
+        if (normalCheckbox) normalCheckbox.checked = false;
+
+        // 3. 関連するstateをリセットする
+        state.useDiscount = false;
+        state.activePaymentPlan = 'none';
     });
 }

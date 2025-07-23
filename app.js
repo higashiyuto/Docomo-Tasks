@@ -11,14 +11,14 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+// ✅ APIルーティング（必要なら）
+app.use('/api/devices', deviceRoutes);
+
 // ✅ 静的ファイル公開
 app.use('/', express.static(path.join(__dirname))); // ← index.html を含む全体ルート
 app.use('/estimate', express.static(path.join(__dirname, 'estimate/public')));
 app.use('/device-edit', express.static(path.join(__dirname, 'device-edit/public')));
 app.use('/todo-dairy', express.static(path.join(__dirname, 'todo-dairy/public')));
 app.use('/schedule', express.static(path.join(__dirname, 'schedule/public')));
-
-// ✅ APIルーティング（必要なら）
-app.use('/api/devices', deviceRoutes);
 
 module.exports = app;

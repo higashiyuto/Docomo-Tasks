@@ -31,6 +31,8 @@ export function registerDeviceSelectHandler(devices){
         state.originalKaedokiPrice = selectedDevice.kaedoki;
         state.kaedokiPrice = state.originalKaedokiPrice;
 
+        state.smartWarrantyPrice = selectedDevice.warranty || 0;
+
         state.currentDiscount = state.discount[state.contractType] || 0;
 
         if(state.useDiscount){
@@ -42,6 +44,20 @@ export function registerDeviceSelectHandler(devices){
             state.normalMonthlyPrice = Math.ceil(state.devicePrice / state.installmentsNum);
             state.kaedokiMonthlyPrice = Math.ceil(state.kaedokiPrice / 23);
         }
+
+        //チェックボックスの要素を取得
+        const kaedoki_checkbox = document.getElementById('kaedoki-price-checkbox');
+        const normal_checkbox = document.getElementById('normal-price-checkbox');
+        const discountCheckbox = document.getElementById('discount-checkbox');
+
+        // 2. 両方のチェックを外す
+        if (discountCheckbox) discountCheckbox.checked = false;
+        if (kaedoki_checkbox) kaedoki_checkbox.checked = false;
+        if (normal_checkbox) normal_checkbox.checked = false;
+
+        // 3. 支払いプラン選択のstateをリセットする
+        state.activePaymentPlan = 'none';
+        state.useDiscount = false;
 
         // 端末割引情報
         state.discount.mnp = selectedDevice.discount.mnp;
