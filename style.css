@@ -34,3 +34,14 @@ iframe{
     border: none;
     height: 90vh;
 }
+
+@media screen and (max-width: 768px){
+    .right-pane{
+        display: none;
+    }
+
+    .left-pane{
+        width: 100%;
+        margin-right: 0;
+    }
+}
