@@ -4,6 +4,13 @@ export async function renderDeviceSelect(devices){
     const device_select = document.getElementById('device-select');
     device_select.innerHTML = '';
 
+    const defaultOption = document.createElement('option');
+    defaultOption.value = "";
+    defaultOption.textContent = "端末を選択してください";
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    device_select.appendChild(defaultOption);
+
     devices.sort((a, b) => a.name.localeCompare(b.name));
     devices.forEach((device)=>{
         const option = document.createElement('option');

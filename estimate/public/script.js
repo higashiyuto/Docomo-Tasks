@@ -1,6 +1,6 @@
 import { PlanInit } from './plan.js';
 import { OptionInit } from './option.js';
-import { DiscountInit } from './discount.js';
+import { DiscountInit } from './discount/discount.js';
 import { DeviceInit } from './device/device.js';
 import { InstallmentsInit } from './installments/installments.js';
 import { renderDeviceInfo } from './device/ui/renderDeviceInfo.js';

@@ -38,6 +38,12 @@ const rawState = {
       security: 0,
       pack: 0,
     },
+    planDiscounts: {
+        family: {applied: false, amount: 0},
+        wifi:   {applied: false, amount: 0},
+        dcard:  {applied: false, amount: 0},
+        electricity: {applied: false, amount: 0},
+    },
     useDiscount: false,
     activePaymentPlan: 'none',
     total: 0,
@@ -56,7 +62,13 @@ function recalculatePrices(target) {
     target.kaedokiMonthlyPrice = Math.ceil(target.kaedokiPrice / 23);
 }
 
-// ▼▼▼ 修正箇所 ▼▼▼
+function recalculatePlanDiscounts(target){
+    target.totalPlanDiscount = Object.values(target.planDiscounts)
+        .reduce((sum, discount) => {
+            return sum + (discount.applied ? discount.amount : 0);
+        }, 0);
+}
+
 function recalculateTotal(target) {
     let paymentPrice = 0;
     if (target.activePaymentPlan === 'kaedoki') {
@@ -65,7 +77,7 @@ function recalculateTotal(target) {
         paymentPrice = target.normalMonthlyPrice;
     }
 
-    const planPrice = target.basePlanPrice || 0;
+    const planPrice = (target.basePlanPrice || 0) - (target.totalPlanDiscount || 0);
     const optionPrice = Object.values(target.selectedOptions).reduce((sum, price) => sum + price, 0);
 
     // プラン料金と支払いプランの月額料金を合算する
@@ -83,9 +95,13 @@ export const state = new Proxy(rawState, {
 
         // ▼▼▼ 修正箇所 ▼▼▼
         const totalTriggerProps = ['activePaymentPlan', 'basePlanPrice', 'selectedOptions'];
+        const planDiscountTriggerProps = ['planDiscounts'];
 
         if (priceTriggerProps.includes(prop)) {
             recalculatePrices(target);
+            recalculateTotal(target);
+        } else if (planDiscountTriggerProps.includes(prop)){
+            recalculatePlanDiscounts(target);
             recalculateTotal(target);
         } else if (totalTriggerProps.includes(prop)) {
             recalculateTotal(target);

@@ -9,7 +9,9 @@ require('dotenv').config('.env');
 //サーバ起動用の設定ファイルであるapp.jsを読み込む
 const app = require('./app');
 
+const PORT = process.env.PORT || 3000;
+
 //サーバの起動
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log(`サーバ起動: http://localhost:${process.env.PORT}`);
 });
