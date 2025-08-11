@@ -25,9 +25,9 @@ const seedData = [
         kaedoki: 145200-91344,
         warranty: 880,
         discount: {
-            mnp: 0,
+            mnp: 44000,
             new: 0,
-            change: 3300,
+            change: 22000,
         }
     },
     {
@@ -47,7 +47,7 @@ const seedData = [
         kaedoki: 118910-75240,
         warranty: 880,
         discount: {
-            mnp: 0,
+            mnp: 43647,
             new: 0,
             change: 0,
         },
@@ -58,9 +58,9 @@ const seedData = [
         kaedoki: 118910-74976,
         warranty: 880,
         discount: {
-            mnp: 22000,
+            mnp: 43911,
             new: 11000,
-            change: 0
+            change: 0,
         },
     },
     {
@@ -69,7 +69,7 @@ const seedData = [
         kaedoki: 88000-43560,
         warranty: 880,
         discount: {
-            mnp: 0,
+            mnp: 43560,
             new: 0,
             change: 3300,
         },
@@ -80,7 +80,7 @@ const seedData = [
         kaedoki: 148060-83160,
         warranty: 880,
         discount: {
-            mnp: 0,
+            mnp: 30129,
             new: 0,
             change: 3300,
         },
@@ -91,7 +91,7 @@ const seedData = [
         kaedoki: 84480-44616,
         warranty: 880,
         discount: {
-            mnp: 0,
+            mnp: 39017,
             new: 39017,
             change: 22000,
         },
@@ -102,7 +102,7 @@ const seedData = [
         kaedoki: 135740-81840,
         warranty: 880,
         discount: {
-            mnp: 0,
+            mnp: 11000,
             new: 0,
             change: 14300,
         },
@@ -113,7 +113,7 @@ const seedData = [
         kaedoki: 62590-30624,
         warranty: 770,
         discount: {
-            mnp: 0,
+            mnp: 31295,
             new: 0,
             change: 0,
         },
@@ -124,7 +124,7 @@ const seedData = [
         kaedoki: 0,
         warranty: 330,
         discount: {
-            mnp: 0,
+            mnp: 21999,
             new: 0,
             change: 0,
         },
@@ -135,8 +135,8 @@ const seedData = [
         kaedoki: 0,
         warranty: 330,
         discount: {
-            mnp: 0,
-            new: 0,
+            mnp: 21999,
+            new: 5499,
             change: 0,
         },
     },
@@ -168,7 +168,7 @@ const seedData = [
         kaedoki: 62590-29040,
         warranty: 770,
         discount: {
-            mnp: 0,
+            mnp: 31295,
             new: 0,
             change: 3300,
         },
@@ -179,8 +179,8 @@ const seedData = [
         kaedoki: 0,
         warranty: 330,
         discount: {
-            mnp: 0,
-            new: 0,
+            mnp: 21999,
+            new: 5499,
             change: 0,
         },
     },
