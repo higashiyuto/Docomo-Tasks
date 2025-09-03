@@ -21,7 +21,7 @@ const connectDB = async() => {
 const seedData = [
     {
         name: 'iPhone 16',
-        price: 145200,
+        price: 1,
         kaedoki: 145200-91344,
         warranty: 880,
         discount: {
