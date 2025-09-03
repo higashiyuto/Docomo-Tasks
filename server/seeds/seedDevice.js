@@ -21,7 +21,7 @@ const connectDB = async() => {
 const seedData = [
     {
         name: 'iPhone 16',
-        price: 1,
+        price: 145200,
         kaedoki: 145200-91344,
         warranty: 880,
         discount: {
@@ -36,7 +36,7 @@ const seedData = [
         kaedoki: 172810-95040,
         warranty: 880,
         discount: {
-            mnp: 0,
+            mnp: 44000,
             new: 0,
             change: 3300,
         }
@@ -62,6 +62,17 @@ const seedData = [
             new: 11000,
             change: 0,
         },
+    },
+    {
+        name: 'Google Pixel 10',
+        price: 138930,
+        kaedoki: 138930-67320,
+        warranty: 880,
+        discount: {
+            mnp: 44000,
+            new: 0,
+            change: 3300,
+        }
     },
     {
         name: 'Google Pixel 9a',
