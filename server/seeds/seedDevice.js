@@ -1,5 +1,4 @@
 // seeds/seedDevices.js
-
 const mongoose = require('mongoose');
 const Device = require('../models/Device.js'); // 適切なパスに修正してください
 
@@ -15,7 +14,6 @@ const connectDB = async() => {
         process.exit(1);
     }
 };
-
 
 // --- 投入する端末データ ---
 const seedData = [

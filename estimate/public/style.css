@@ -1,345 +1,286 @@
-/* --- 基本設定 --- */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: black;
-}
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
 
-/* ▼▼▼ 変更点 ▼▼▼ */
-html, body {
-    height: 100%; /* 高さを100%に設定 */
-}
-/* ▲▲▲ ここまで ▲▲▲ */
+        html, body {
+            height: 100%;
+        }
 
-
-body {
-    font-family: sans-serif;
-    background-color: #f9f9f9;
-}
-
-.estimate {
-    width: 95%;
-    max-width: 800px;
-    /* ▼▼▼ 変更点 ▼▼▼ */
-    margin: 0 auto; /* 上下のマージンを削除 */
-    min-height: 100vh; /* 最小の高さを画面の高さに設定 */
-    /* ▲▲▲ ここまで ▲▲▲ */
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-
-/* selectとbuttonのスタイルを分離 */
-button {
-    font-size: 14px;
-    font-weight: bold;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 8px;
-    cursor: pointer;
-}
-
-select {
-    font-size: 14px;
-    font-weight: bold;
-    /* 背景と枠線をなくす */
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    outline: none;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        
+        /* --- メインコンテナのレイアウト --- */
+        .estimate {
+            width: 100%; /* ★変更: 画面幅いっぱいに設定 */
+            max-width: 1200px; /* ★追加: PCなどの大画面での最大幅を設定 */
+            min-height: 100vh; /* 画面の縦いっぱいの高さを確保 */
+            margin: 0 auto; /* ★変更: 大画面で中央に配置 */
+            padding: 24px; /* ★変更: 端末の端にコンテンツがくっつかないよう余白を確保 */
+            background-color: #ffffff;
+            
+            display: flex;
+            flex-direction: column;
+            gap: 16px; /* パーツ間の余白を調整 */
+        }
 
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+        /* selectとbuttonのスタイルを分離 */
+        button {
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
 
-table td, table th {
-    height: 38px;
-    font-size: 14px;
-    font-weight: bold;
-    border: 1px solid #ddd;
-}
-
-/* --- ヘッダーのアクション部 --- */
-.action-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 0;
-}
-
-.icon-button {
-    border: none;
-    background: transparent;
-    padding: 0;
-}
-
-.icon-button:active img {
-    transform: scale(0.95);
-}
-
-.icon-button img {
-    width: 30px;
-    height: 28px;
-    vertical-align: middle;
-}
-
-.customer-name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: auto;
-}
-
-/* --- 端末・契約情報 --- */
-.two-column {
-    display: flex;
-    gap: 16px;
-    align-items: stretch;
-    margin-top: 20px;
-}
-
-.device-container {
-    flex: 3;
-}
-
-.device-container select{
-    width: 90%;
-}
-
-#device-content-table th {
-    width: 60%;
-}
-#device-content-table td {
-    text-align: right;
-    padding-right: 1em;
-}
-
-.contract-container {
-    flex: 1;
-    display: flex;
-}
-
-/* 契約種別selectに下線を追加して操作しやすくする */
-#contract-select {
-    width: 100%;
-    text-align: center;
-    text-align-last: center;
-    border-bottom: 1px solid #ccc;
-    border-radius: 0; /* 下線と合わせるため角丸をリセット */
-}
+        select {
+            font-size: 14px;
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            cursor: pointer;
+            outline: none;
+        }
 
 
-/* --- 端末割引 --- */
-.device-discount-container{
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            height: 38px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            padding: 0 8px;
+        }
+
+        /* --- 端末・契約情報 --- */
+        .two-column {
+            display: flex;
+            flex-wrap: wrap; /* ★追加: 画面が小さい時に折り返す */
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .device-container {
+            flex: 3;
+            min-width: 300px; /* ★追加: 折り返す際の最小幅 */
+        }
+
+        .device-container select{
+            width: 90%;
+        }
+
+        #device-content-table th {
+            width: 60%;
+        }
+        #device-content-table td {
+            text-align: right;
+            padding-right: 1em;
+        }
+
+        .contract-container {
+            flex: 1;
+            display: flex;
+            min-width: 150px; /* ★追加: 折り返す際の最小幅 */
+        }
+
+        #contract-select {
+            width: 100%;
+            text-align: center;
+            text-align-last: center;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+        }
 
 
-/* --- 分割払い (Flexboxで再構築) --- */
-.installments-container {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 6px 12px;
-    background-color: #fff;
-    margin-top: -10px;
-}
-
-.installments-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.installments-item .name {
-    width: 140px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* 分割回数selectに下線を追加 */
-.installments-item select {
-    width: 120px;
-    height: 35px;
-    border-bottom: 1px solid #ccc;
-    border-radius: 0;
-}
-
-.installments-item .placeholder {
-    width: 120px;
-    height: 35px;
-    border: none;
-    background-color: transparent;
-}
-
-.installments-item .price{
-    width: 100px;
-    text-align: right;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.installments-item .monthly-price {
-    flex: 1;
-    margin-left: 5px;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.installments-item input[type="checkbox"] {
-    margin-left: auto;
-    width: 20px;
-    height: 20px;
-}
-
-/* --- プラン & オプション共通 --- */
-.plan-container{
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 6px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background-color: #fff;
-    min-height: 100px;
-}
-
-.option-container {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 6px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background-color: #fff;
-    min-height: 150px;
-}
-
-.plan-buttons,
-.option-category-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
-}
-
-.plan-button,
-.option-category-button {
-    flex: 1;
-    min-width: 90px;
-    padding: 10px;
-    font-size: 11px;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: background-color 0.2s ease;
-}
-
-/* --- プラン & オプションの動的ボタンエリア --- */
-.plan-storage,
-.option-edit {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 4px;
-    margin-top: 4px;
-    gap: 8px;
-    border-top: 1px solid #eee;
-}
-
-.storage-button,
-.option-button {
-    padding: 8px;
-    font-size: 13px;
-    font-weight: bold;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    cursor: pointer;
-    flex-grow: 1;
-    text-align: center;
-    gap: 8px;
-}
-
-/* --- 色の設定 --- */
-.plan-button.max { background-color: rgba(209,0,61,0.3); }
-.plan-button.active.max { background-color: rgba(209,0,61,0.7); }
-.plan-button.mini { background-color: rgba(0,124,196,0.3); }
-.plan-button.active.mini { background-color: rgba(0,124,196,0.7); }
-.plan-button.ahamo { background-color: rgba(42,31,28,0.3); }
-.plan-button.active.ahamo { background-color: rgba(42,31,28,0.5); }
-.plan-button.poikatsu-max { background-color: rgba(201,158,15,0.3); }
-.plan-button.active.poikatsu-max { background-color: rgba(201,158,15,0.7); }
-.plan-button.poikatsu-20 { background-color: rgba(201,158,15,0.3); }
-.plan-button.active.poikatsu-20 { background-color: rgba(201,158,15,0.7); }
-
-.storage-button.max { background-color: rgba(209,0,61,0.3); }
-.storage-button.active.max { background-color: rgba(209,0,61,0.7); }
-.storage-button.mini { background-color: rgba(0,124,196,0.3); }
-.storage-button.active.mini { background-color: rgba(0,124,196,0.7); }
-.storage-button.ahamo { background-color: rgba(42,31,28,0.3); }
-.storage-button.active.ahamo { background-color: rgba(42,31,28,0.5); }
-
-.option-category-button.active{
-    background-color: #d0d0d0;
-}
-
-.option-button.active{
-    background-color: #d0d0d0;
-}
-
-/* --- 割引 (Flexboxで再構築) --- */
-.discount-container {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 6px 12px;
-    background-color: #fff;
-}
-
-.discount-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.discount-item select {
-    flex-grow: 1;
-    background-color: #fff;
-    border: none;
-    min-width: 150px;
-}
-.discount-item .price {
-    font-weight: bold;
-    width: 80px;
-    text-align: right;
-}
-.discount-item input[type="checkbox"] {
-    margin-left: auto;
-}
+        /* --- 端末割引 --- */
+        .device-discount-container{
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
 
 
-/* --- 合計 --- */
-.total-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 16px;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
+        /* --- 分割払い --- */
+        .installments-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px;
+            background-color: #fff;
+        }
+
+        .installments-item {
+            display: flex;
+            flex-wrap: wrap; /* 小さい画面で折り返す */
+            align-items: center;
+            gap: 8px;
+        }
+
+        .installments-item .name {
+            width: 140px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .installments-item select {
+            width: 120px;
+            height: 35px;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+        }
+
+        .installments-item .placeholder {
+            width: 120px;
+            height: 35px;
+        }
+
+        .installments-item .price{
+            width: 100px;
+            text-align: right;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .installments-item .monthly-price {
+            flex: 1;
+            min-width: 100px; /* 折り返し時の最小幅 */
+            margin-left: 5px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .installments-item input[type="checkbox"] {
+            margin-left: auto;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* --- プラン & オプション共通 --- */
+        .plan-container, .option-container, .discount-container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color: #fff;
+        }
+
+        .option-container {
+            min-height: 150px;
+        }
+        
+        .plan-buttons,
+        .option-category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .plan-button,
+        .option-category-button {
+            flex: 1;
+            min-width: 90px;
+            padding: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: background-color 0.2s ease;
+        }
+
+        /* --- プラン & オプションの動的ボタンエリア --- */
+        .plan-storage,
+        .option-edit {
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 8px;
+            margin-top: 8px;
+            gap: 8px;
+            border-top: 1px solid #eee;
+        }
+
+        .storage-button,
+        .option-button {
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* --- 色の設定 --- */
+        .plan-button.active, .storage-button.active {
+            color: white;
+        }
+        .plan-button.max, .storage-button.max { background-color: rgba(209,0,61,0.3); }
+        .plan-button.active.max, .storage-button.active.max { background-color: rgba(209,0,61,0.8); }
+        .plan-button.mini, .storage-button.mini { background-color: rgba(0,124,196,0.3); }
+        .plan-button.active.mini, .storage-button.active.mini { background-color: rgba(0,124,196,0.8); }
+        .plan-button.ahamo, .storage-button.ahamo { background-color: rgba(42,31,28,0.3); }
+        .plan-button.active.ahamo, .storage-button.active.ahamo { background-color: rgba(42,31,28,0.6); }
+        .plan-button.poikatsu-max, .plan-button.poikatsu-20 { background-color: rgba(201,158,15,0.3); }
+        .plan-button.active.poikatsu-max, .plan-button.active.poikatsu-20 { background-color: rgba(201,158,15,0.8); }
+
+        .option-category-button.active, .option-button.active {
+            background-color: #d0d0d0;
+        }
+
+        /* --- 割引 --- */
+        .discount-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .discount-item select {
+            flex-grow: 1;
+            min-width: 150px;
+        }
+        .discount-item .price {
+            font-weight: bold;
+            width: 80px;
+            text-align: right;
+        }
+        .discount-item input[type="checkbox"] {
+            margin-left: auto;
+        }
+
+
+        /* --- 合計 --- */
+        .total-container {
+            margin-top: auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 16px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
