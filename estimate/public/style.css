@@ -127,7 +127,7 @@
 
         .installments-item .name {
             width: 140px;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             flex-shrink: 0;
         }
