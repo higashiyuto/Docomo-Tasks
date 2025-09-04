@@ -19,10 +19,10 @@
             max-width: 800px;
             margin: 0 auto;
             min-height: 100vh;
-            padding: 16px; /* ★変更: 小さい画面でも余白を確保 */
+            padding: 16px;
             display: flex;
             flex-direction: column;
-            gap: 12px; /* ★変更: パーツ間の余白を調整 */
+            gap: 12px;
         }
 
 
@@ -112,24 +112,24 @@
         .installments-container {
             display: flex;
             flex-direction: column;
-            gap: 8px; /* ★変更 */
+            gap: 8px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 12px; /* ★変更 */
+            padding: 12px;
             background-color: #fff;
         }
 
         .installments-item {
             display: flex;
             align-items: center;
-            gap: 8px; /* ★変更 */
+            gap: 8px;
         }
 
         .installments-item .name {
             width: 140px;
             font-size: 14px;
             font-weight: bold;
-            flex-shrink: 0; /* ★追加: 縮まないようにする */
+            flex-shrink: 0;
         }
 
         .installments-item select {
@@ -144,20 +144,24 @@
             height: 35px;
         }
 
+        /* ▼▼▼ ここを修正しました ▼▼▼ */
         .installments-item .price{
-            width: 100px;
+            flex-grow: 1; /* ★変更: 幅を固定せず、柔軟に伸びるように */
             text-align: right;
             font-weight: bold;
             white-space: nowrap;
+            padding-right: 8px; /* ★追加: 右側に少し余白を追加 */
         }
 
         .installments-item .monthly-price {
-            flex-grow: 1; /* ★変更: 残りのスペースを埋める */
-            text-align: left; /* ★変更 */
+            /* flex-grow は削除 */
+            text-align: left;
             margin-left: 5px;
             font-weight: bold;
             white-space: nowrap;
+            width: 130px; /* ★追加: 月額料金の幅を固定して、レイアウトを安定させる */
         }
+        /* ▲▲▲ ここまで修正 ▲▲▲ */
 
         .installments-item input[type="checkbox"] {
             margin-left: auto;
@@ -171,10 +175,10 @@
         .discount-container {
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 12px; /* ★変更 */
+            padding: 12px;
             display: flex;
             flex-direction: column;
-            gap: 8px; /* ★変更 */
+            gap: 8px;
             background-color: #fff;
         }
 
@@ -186,7 +190,7 @@
         .option-category-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 4px; /* ★変更 */
+            gap: 4px;
         }
 
         .plan-button,
@@ -288,40 +292,63 @@
         @media (max-width: 768px) {
             
             .estimate {
-                padding: 12px; /* 小さい画面では余白を少し詰める */
+                padding: 12px;
                 gap: 10px;
             }
 
-            /* 「端末選択」と「契約種別」を縦に並べる */
             .two-column {
                 flex-direction: column;
                 gap: 12px;
             }
 
-            /* 分割払いの項目を折り返すようにする */
             .installments-item {
-                flex-wrap: wrap;
+                gap: 6px; /* 隙間を詰める */
             }
 
             .installments-item .name {
-                width: 100%; /* 名前を一行専有させる */
-                margin-bottom: 4px;
+                width: 110px; /* 名前の幅を少し詰める */
+            }
+            
+            .installments-item .placeholder {
+                display: none; /* カエドキの空白は非表示に */
             }
 
-            .installments-item .placeholder {
-                display: none; /* 空白の要素は非表示に */
+            .installments-item select {
+                width: 100px; /* 分割回数セレクトの幅を詰める */
+            }
+
+            .installments-item .price {
+                width: auto; /* 価格の幅は自動に */
             }
 
             .installments-item .monthly-price {
-                flex-grow: 1;
-                text-align: right; /* 右寄せにする */
+                text-align: right; /* 月額を右寄せにしてスペースを確保 */
             }
 
             .plan-button,
             .option-category-button,
             .storage-button,
             .option-button {
-                font-size: 12px; /* ボタンの文字を少し小さく */
+                font-size: 12px;
                 padding: 8px;
+            }
+        }
+
+        /* =================================================== */
+        /* ★★★ スマートフォン向けのさらに細かい調整 ★★★ */
+        /* =================================================== */
+        @media (max-width: 480px) {
+            .installments-item {
+                flex-wrap: wrap; /* スマホでは折り返す */
+            }
+            .installments-item .name {
+                width: 100%;
+                margin-bottom: 4px;
+            }
+            .installments-item .price {
+                flex-grow: 1;
+            }
+            .installments-item .monthly-price {
+                text-align: left;
             }
         }
