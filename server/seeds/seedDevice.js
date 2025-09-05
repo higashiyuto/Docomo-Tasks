@@ -65,7 +65,7 @@ const seedData = [
         name: 'Google Pixel 10',
         price: 138930,
         kaedoki: 138930-67320,
-        warranty: 880,
+        warranty: 1100,
         discount: {
             mnp: 44000,
             new: 0,
@@ -120,7 +120,7 @@ const seedData = [
         name: 'Galaxy A36',
         price: 62590,
         kaedoki: 62590-30624,
-        warranty: 770,
+        warranty: 330,
         discount: {
             mnp: 31295,
             new: 0,
@@ -153,7 +153,7 @@ const seedData = [
         name: 'AQUOS A55',
         price: 70840,
         kaedoki: 70840-32208,
-        warranty: 550,
+        warranty: 605,
         discount: {
             mnp: 0,
             new: 0,
@@ -164,7 +164,7 @@ const seedData = [
         name: 'AQUOS sense9',
         price: 67100,
         kaedoki: 67100-23760,
-        warranty: 770,
+        warranty: 605,
         discount: {
             mnp: 0,
             new: 0,
